@@ -264,6 +264,9 @@ def post_to_inbox(activity: ap.BaseActivity) -> None:
         logger.info(f"received duplicate activity {activity!r}, dropping it")
         return
 
+    if activity.id == None:
+	logger.warning("Empty Activity: {}".format(repr(activity)))
+
     save(Box.INBOX, activity)
     logger.info(f"spawning tasks for {activity!r}")
     if not activity.has_type([ap.ActivityType.DELETE, ap.ActivityType.UPDATE]):
