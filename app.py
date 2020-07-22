@@ -98,18 +98,10 @@ app.config.update(WTF_CSRF_CHECK_DEFAULT=False)
 app.config.update(SESSION_COOKIE_SECURE=True if config.SCHEME == "https" else False)
 
 
-# See Flask Security Consideations: https://flask.palletsprojects.com/en/1.1.x/security/
-app.config.update(
-    SESSION_COOKIE_SECURE=True,
-    SESSION_COOKIE_HTTPONLY=True,
-    SESSION_COOKIE_SAMESITE='Lax',
-)
-
 csp = {
 	'default-src': '\'self\'',
 	'script-src': '\'self\'',
-	'style-src': '\'self\'',
-	'style-src-attr': '\'unsafe-inline\'',
+	'style-src': ['\'self\'', "'unsafe-inline'"],
 	'object-src': "'none'",
 	'base-uri': "'none'",
 	# 'require-trusted-types-for': "'script'",
