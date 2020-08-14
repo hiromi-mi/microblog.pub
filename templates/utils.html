@@ -398,7 +398,7 @@
 <aside style="padding-top:20px;">
 {% if likes %}
     <h4 style="font-weight:normal"><strong>{{ likes|length }}</strong> like{% if (likes | length) > 1 %}s{% endif %}</h4>
-    {% if session.logged_in %}
+{% if session.logged_in %}
 <div style="display:flex;flex-wrap:wrap;">
 {% for like in likes %}
 {{ display_actor_icon(like) }}
@@ -408,7 +408,7 @@
 {% endif %}
 {% if shares %}
 <h4 style="font-weight:normal"><strong>{{ shares|length }}</strong> boost{% if (shares|length) > 1 %}s{% endif %}</h4>
-    {% if session.logged_in %}
+{% if session.logged_in %}
 <div style="display:flex;flex-wrap:wrap;">
 {% for boost in shares %}
 {{ display_actor_icon(boost) }}
