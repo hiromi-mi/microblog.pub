@@ -107,11 +107,11 @@
 
 <div class="note-wrapper">
     <aside style="clear:both;height:20px;">
-	<a href="{{ actor | url_or_id | get_url }}" style="margin:0;text-decoration:none;margin: 0;text-decoration: none;display: block;width: 75%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;float: left;" class="no-hover">
+	<a href="{{ actor | url_or_id | get_url }}" style="margin:0;text-decoration:none;margin: 0;text-decoration: none;display: block;text-align: left;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;float: left;" class="no-hover">
         <strong>{{ (actor.name or actor.preferredUsername) | clean | replace_custom_emojis(actor) | safe }}</strong>
         <span class="l">@{% if not no_color and obj.id | is_from_outbox %}<span class="pcolor">{{ actor.preferredUsername | clean | replace_custom_emojis(actor) | safe }}</span>{% else %}{{ actor.preferredUsername | clean | replace_custom_emojis(actor) | safe }}{% endif %}@{% if not no_color and obj.id | is_from_outbox %}<span class="pcolor">{{ actor | url_or_id | get_url | domain }}</span>{% else %}{{ actor | url_or_id | get_url | domain }}{% endif %}</span></a>
 
-	<span style="float:right;width: 25%;text-align: right;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: block;">
+	<span style="float:right;text-align: right;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: block;">
 		<a rel="noopener" class="u-url u-uid note-permalink l" href="{{ obj | url_or_id | get_url }}">
 {% if session.logged_in %}
             <time class="dt-published" title="{{ obj.published }}" datetime="{{ obj.published }}" {% if obj | url_or_id | get_url | is_from_outbox %}{%else%}rel="external noreferrer"{%endif%}>{{ obj.published | format_timeago }}</time></a>
