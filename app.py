@@ -112,7 +112,6 @@ talisman = Talisman(
         app,
         content_security_policy=csp,
         force_https=False,
-        content_security_policy_nonce_in=['script-src', 'style-src'],
         )
 
 
